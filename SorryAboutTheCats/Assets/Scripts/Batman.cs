@@ -10,7 +10,6 @@ public class Batman : MonoBehaviour
     public Sprite BatmanSpriteCar;
     public Sprite BatmanSpriteDestroyed;
     private SpriteRenderer spriteRenderer;
-    public Score score;
 
     public List<AudioClip> CatSounds = new List<AudioClip>();
     public List<AudioClip> DogSounds = new List<AudioClip>();
@@ -29,20 +28,30 @@ public class Batman : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.otherRigidbody.CompareTag("Cat"))
+        if (collision.otherCollider.gameObject.CompareTag("Cat"))
         {
             transform.GetComponent<AudioSource>().clip = CatSounds[Random.Range(0, CatSounds.Count)];
             transform.GetComponent<AudioSource>().Play();
             FindObjectOfType<Score>().AddScore(1);
         }
-        if (collision.otherRigidbody.CompareTag("Dog"))
+        if (collision.otherCollider.gameObject.CompareTag("Dog"))
         {
             transform.GetComponent<AudioSource>().clip = DogSounds[Random.Range(0, DogSounds.Count)];
             transform.GetComponent<AudioSource>().Play();
             FindObjectOfType<Score>().RemoveScore(1);
         }
+        if (collision.otherCollider.gameObject.CompareTag("Wall"))
+        {
+            Lose();
+        }
 
     }
+
+    void Lose()
+    {
+        spriteRenderer.sprite = BatmanSpriteDestroyed;
+    }
+
     void ChangeNOW()
     {
         if (spriteRenderer.sprite == BatmanSpriteCar) // if the spriteRenderer sprite = sprite1 then change to sprite2
