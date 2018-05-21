@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     #region Variables
     private Rigidbody2D rb2d;
-    private int movementSpeed = 5;                  // Standard value: 5
+    public int movementSpeed = 3;                  // Standard value: 5
     #endregion
 
     void Start()
