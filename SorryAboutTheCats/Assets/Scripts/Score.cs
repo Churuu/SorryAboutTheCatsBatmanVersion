@@ -11,4 +11,9 @@ public class Score : MonoBehaviour
 	{
 		this.score += score;
 	}
+
+	public void RemoveScore(int score)
+	{
+		this.score -= score;
+	}
 }
