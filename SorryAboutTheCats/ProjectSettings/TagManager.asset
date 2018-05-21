@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Cat
   - Dog
+  - Wall
   layers:
   - Default
   - TransparentFX
