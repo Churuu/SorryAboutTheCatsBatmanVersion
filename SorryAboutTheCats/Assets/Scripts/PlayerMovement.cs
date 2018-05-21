@@ -6,7 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     #region Variables
     private Rigidbody2D rb2d;
-    private int movementSpeed = 5; // 5 standard value
+    private int movementSpeed = 5;                  // Standard value: 5
+    private int gameSpeed = 2;                      // Standard value: 3
     #endregion
 
     void Start()
@@ -16,11 +17,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        KeyboardInput();
+        Movement();
     }
 
-    void KeyboardInput()
+    void Movement()
     {
-        rb2d.velocity = new Vector2((Input.GetAxis("Horizontal") * movementSpeed), 0);
+        rb2d.velocity = new Vector2((Input.GetAxis("Horizontal") * movementSpeed), gameSpeed);
     }
 }
