@@ -6,8 +6,9 @@ public class SpriteLooper : MonoBehaviour
 {
     #region Variables
     private Camera mainCam;
-    public float basePosition = 5;
-    public float moveSpeed = -1;
+    private float basePosition = 5;
+    private float moveSpeed = 1;
+    private float boundry = -8;
     #endregion
 
     void Start()
@@ -23,7 +24,7 @@ public class SpriteLooper : MonoBehaviour
 
     void BoundryCheck()
     {
-        if (transform.position.y < -8)
+        if (transform.position.y < boundry)
         {
             transform.position = new Vector2(0, basePosition);
         }
