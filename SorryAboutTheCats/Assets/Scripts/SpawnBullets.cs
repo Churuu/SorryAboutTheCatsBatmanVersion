@@ -15,9 +15,9 @@ public class SpawnBullets : MonoBehaviour
 
     void CreateBullet()
     {
-        Vector2 pos = new Vector2(transform.position.x + 0.1f, transform.position.y + 0.2f);
+        Vector2 pos = new Vector2(transform.position.x + 0.3f, transform.position.y + 0.2f);
         Instantiate(bullet, pos, Quaternion.identity);
-        Vector2 pos2 = new Vector2(transform.position.x - 0.1f, transform.position.y + 0.2f);
+        Vector2 pos2 = new Vector2(transform.position.x - 0.3f, transform.position.y + 0.2f);
         Instantiate(bullet, pos2, Quaternion.identity);
     }
 
