@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class SpawnBullets : MonoBehaviour
 {
-
     public GameObject bullet;
 
-	void Update ()
+    void Update()
     {
         if (Input.GetButtonDown("Fire1"))
             CreateBullet();
-	}
+    }
 
     void CreateBullet()
     {

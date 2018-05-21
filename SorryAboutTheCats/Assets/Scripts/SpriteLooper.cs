@@ -6,14 +6,19 @@ public class SpriteLooper : MonoBehaviour
 {
     #region Variables
     private Camera mainCam;
-    private float basePosition = 8; // Standard value: 8
+    private float basePosition = 11.5f; // Standard value: 8
     private float moveSpeed = 2;
-    private float boundry = -8; // Standard value: -8
+    private float boundry = -11.5f; // Standard value: -8
+    private SpriteRenderer spRen;
+    private GameController game;
+    public Sprite[] tiles = new Sprite[14];
     #endregion
 
     void Start()
     {
         mainCam = Camera.main;
+        game = GameObject.Find("Main Camera").GetComponent<GameController>();
+        spRen = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -27,11 +32,19 @@ public class SpriteLooper : MonoBehaviour
         if (transform.position.y < boundry)
         {
             transform.position = new Vector2(0, basePosition);
+            RandomTile();
         }
     }
 
     void Movement()
     {
-        transform.Translate(-moveSpeed * Time.deltaTime, 0, 0);
+        transform.Translate(0, -moveSpeed * Time.deltaTime, 0);
+    }
+
+    void RandomTile()
+    {
+        int r = game.getRandom();
+
+        spRen.sprite = tiles[r];
     }
 }
