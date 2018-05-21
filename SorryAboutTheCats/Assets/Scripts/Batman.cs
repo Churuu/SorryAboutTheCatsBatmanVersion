@@ -10,6 +10,7 @@ public class Batman : MonoBehaviour
     public Sprite BatmanSpriteCar;
     public Sprite BatmanSpriteDestroyed;
     private SpriteRenderer spriteRenderer;
+    public Score score;
 
     public List<AudioClip> CatSounds = new List<AudioClip>();
     public List<AudioClip> DogSounds = new List<AudioClip>();
@@ -32,12 +33,13 @@ public class Batman : MonoBehaviour
         {
             transform.GetComponent<AudioSource>().clip = CatSounds[Random.Range(0, CatSounds.Count)];
             transform.GetComponent<AudioSource>().Play();
-            
+            FindObjectOfType<Score>().AddScore(1);
         }
         if (collision.otherRigidbody.CompareTag("Dog"))
         {
             transform.GetComponent<AudioSource>().clip = DogSounds[Random.Range(0, DogSounds.Count)];
             transform.GetComponent<AudioSource>().Play();
+            FindObjectOfType<Score>().RemoveScore(1);
         }
 
     }
