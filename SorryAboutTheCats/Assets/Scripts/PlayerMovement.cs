@@ -22,5 +22,6 @@ public class PlayerMovement : MonoBehaviour
     void Movement()
     {
         rb2d.velocity = new Vector2((Input.GetAxis("Horizontal") * movementSpeed), 0);
+        transform.eulerAngles = new Vector3(0, 0, 90 + Input.GetAxis("Horizontal") * -45);
     }
 }

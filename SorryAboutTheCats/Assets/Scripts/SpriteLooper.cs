@@ -6,9 +6,9 @@ public class SpriteLooper : MonoBehaviour
 {
     #region Variables
     private Camera mainCam;
-    private float basePosition = 5;
-    private float moveSpeed = 1;
-    private float boundry = -8;
+    private float basePosition = 8; // Standard value: 8
+    private float moveSpeed = 2;
+    private float boundry = -8; // Standard value: -8
     #endregion
 
     void Start()
