@@ -6,62 +6,65 @@ using UnityEngine.UI;
 public class Batman : MonoBehaviour
 {
 
-    public GameObject BatmanPlayer;
-    public Sprite BatmanSpriteCar;
-    public Sprite BatmanSpriteDestroyed;
+    public GameObject batmanPlayer;
+    public Sprite batmanSpriteCar;
+    public Sprite batmanSpriteDestroyed;
+    public Sprite deadCat;
+    public Sprite deadDog;
     private SpriteRenderer spriteRenderer;
 
-    public List<AudioClip> CatSounds = new List<AudioClip>();
-    public List<AudioClip> DogSounds = new List<AudioClip>();
-    public List<AudioClip> BatmanSounds = new List<AudioClip>();
-    
+    public List<AudioClip> catSounds = new List<AudioClip>();
+    public List<AudioClip> dogSounds = new List<AudioClip>();
+    public List<AudioClip> batmanSounds = new List<AudioClip>();
+
 
     void Start()
     {
         // SoundFolder should be in Assets/Resources 
-        CatSounds.Add((AudioClip)Resources.Load(" SoundFolder/youraudioClip1"));
-        CatSounds.Add((AudioClip)Resources.Load(" SoundFolder/youraudioClip2"));
+        catSounds.Add((AudioClip)Resources.Load(" SoundFolder/youraudioClip1"));
+        catSounds.Add((AudioClip)Resources.Load(" SoundFolder/youraudioClip2"));
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer == null)
-            spriteRenderer.sprite = BatmanSpriteCar;
+            spriteRenderer.sprite = batmanSpriteCar;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        if (collision.otherCollider.gameObject.CompareTag("Cat"))
+        if (col.gameObject.CompareTag("Cat"))
         {
-            transform.GetComponent<AudioSource>().clip = CatSounds[Random.Range(0, CatSounds.Count)];
-            transform.GetComponent<AudioSource>().Play();
+            //transform.GetComponent<AudioSource>().clip = CatSounds[Random.Range(0, CatSounds.Count)];
+            //transform.GetComponent<AudioSource>().Play();
+            col.GetComponent<SpriteRenderer>().sprite = deadCat;
             FindObjectOfType<Score>().AddScore(1);
         }
-        if (collision.otherCollider.gameObject.CompareTag("Dog"))
+        else if (col.gameObject.CompareTag("Dog"))
         {
-            transform.GetComponent<AudioSource>().clip = DogSounds[Random.Range(0, DogSounds.Count)];
-            transform.GetComponent<AudioSource>().Play();
+            //transform.GetComponent<AudioSource>().clip = dogSounds[Random.Range(0, dogSounds.Count)];
+            //transform.GetComponent<AudioSource>().Play();
+            col.GetComponent<SpriteRenderer>().sprite = deadDog;
             FindObjectOfType<Score>().RemoveScore(1);
         }
-        if (collision.otherCollider.gameObject.CompareTag("Wall"))
+        else if (col.gameObject.CompareTag("Wall"))
         {
             Lose();
         }
-
     }
 
     void Lose()
     {
-        spriteRenderer.sprite = BatmanSpriteDestroyed;
+        spriteRenderer.sprite = batmanSpriteDestroyed;
     }
 
     void ChangeNOW()
     {
-        if (spriteRenderer.sprite == BatmanSpriteCar) // if the spriteRenderer sprite = sprite1 then change to sprite2
+        if (spriteRenderer.sprite == batmanSpriteCar) // if the spriteRenderer sprite = sprite1 then change to sprite2
         {
-            
-            spriteRenderer.sprite = BatmanSpriteDestroyed;
+
+            spriteRenderer.sprite = batmanSpriteDestroyed;
         }
         else
         {
-            spriteRenderer.sprite = BatmanSpriteCar; // otherwise change it back to sprite1
+            spriteRenderer.sprite = batmanSpriteCar; // otherwise change it back to sprite1
         }
     }
     void Update()

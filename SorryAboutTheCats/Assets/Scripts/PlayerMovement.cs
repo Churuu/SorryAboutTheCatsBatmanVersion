@@ -6,7 +6,11 @@ public class PlayerMovement : MonoBehaviour
 {
     #region Variables
     private Rigidbody2D rb2d;
-    public int movementSpeed = 3;                  // Standard value: 5
+    public float movementSpeedX;
+    public float movementSpeedY;
+    public Transform mainCamera;
+    private int rotationAngle = 30;
+    private float edgeBorder = 3f;
     #endregion
 
     void Start()
@@ -21,7 +25,17 @@ public class PlayerMovement : MonoBehaviour
 
     void Movement()
     {
-        rb2d.velocity = new Vector2((Input.GetAxis("Horizontal") * movementSpeed), 0);
-        transform.eulerAngles = new Vector3(0, 0, 90 + Input.GetAxis("Horizontal") * -45);
+        mainCamera.position = new Vector3(0, transform.position.y + 4, -10);
+        rb2d.velocity = new Vector2((Input.GetAxis("Horizontal") * movementSpeedX), movementSpeedY);
+        transform.eulerAngles = new Vector3(0, 0, 90 + Input.GetAxis("Horizontal") * -rotationAngle);
+
+        if (transform.position.x < -edgeBorder)
+        {
+            transform.position = new Vector2(-edgeBorder, transform.position.y);
+        }
+        else if (transform.position.x > edgeBorder)
+        {
+            transform.position = new Vector2(edgeBorder, transform.position.y);
+        }
     }
 }
