@@ -25,7 +25,7 @@ public class SpawnCatsAndDogs : MonoBehaviour
         ChooseAnimalToSpawn();
         if (WallTimeCheck())
             SpawnWall();
-        
+
     }
 
     void ChooseAnimalToSpawn()
@@ -58,7 +58,8 @@ public class SpawnCatsAndDogs : MonoBehaviour
     {
         var col = GetComponent<Collider2D>();
         GameObject wallTemp = Instantiate(wall[Random.Range(0, wall.Length)], RandomSpawnPos(col.bounds.center, col.bounds.size), Quaternion.Euler(0, 0, -90)) as GameObject;
-        wallTimeOffset -= 0.1f;
+        if (wallTimeOffset > 0.5f)
+            wallTimeOffset -= 0.1f;
 
     }
 
