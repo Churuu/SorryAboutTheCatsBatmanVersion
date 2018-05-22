@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuitSprict : MonoBehaviour {
+public class QuitScript : MonoBehaviour
 
-
+{
     public void Quit()
     {
         {

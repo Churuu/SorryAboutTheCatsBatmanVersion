@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PLay : MonoBehaviour {
-
-
+public class Play : MonoBehaviour
+{
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
