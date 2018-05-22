@@ -6,9 +6,9 @@ public class SpawnCatsAndDogs : MonoBehaviour
 {
 
     public float timeOffset;
+    public float wallTimeOffset = 3;
     float cycleTimer = 0;
     float wallTimer;
-    public float wallTimeOffset = 3;
 
     public GameObject[] cats;
     public GameObject dog;
@@ -33,6 +33,9 @@ public class SpawnCatsAndDogs : MonoBehaviour
         if (Time.time > cycleTimer)
         {
             cycleTimer = Time.time + timeOffset;
+            if (timeOffset > 1)
+                timeOffset -= 0.1f;
+
             float rng = Random.value;
             if (rng < 0.7f)
                 SpawnCat();
@@ -46,6 +49,8 @@ public class SpawnCatsAndDogs : MonoBehaviour
         if (Time.time > wallTimer)
         {
             wallTimer = Time.time + wallTimeOffset;
+            if (wallTimeOffset > 1)
+                wallTimeOffset -= 0.1f;
             return true;
         }
         else
@@ -57,7 +62,7 @@ public class SpawnCatsAndDogs : MonoBehaviour
     void SpawnWall()
     {
         var col = GetComponent<Collider2D>();
-        GameObject wallTemp = Instantiate(wall[Random.Range(0, wall.Length)], RandomSpawnPos(col.bounds.center, col.bounds.size), Quaternion.Euler(0, 0, -90)) as GameObject;
+        GameObject wallTemp = Instantiate(wall[Random.Range(0, wall.Length)], RandomSpawnPos(col.bounds.center, col.bounds.size), Quaternion.Euler(0, 0, Random.Range(0, 361))) as GameObject;
         if (wallTimeOffset > 0.5f)
             wallTimeOffset -= 0.1f;
 
@@ -67,13 +72,11 @@ public class SpawnCatsAndDogs : MonoBehaviour
     {
         var col = GetComponent<Collider2D>();
         GameObject catTemp = Instantiate(cats[Random.Range(0, cats.Length)], RandomSpawnPos(col.bounds.center, col.bounds.size), Quaternion.Euler(0, 0, -90)) as GameObject;
-        //catTemp.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -350 * Time.deltaTime);
     }
     void SpawnDog()
     {
         var col = GetComponent<Collider2D>();
         GameObject catTemp = Instantiate(dog, RandomSpawnPos(col.bounds.center, col.bounds.size), Quaternion.Euler(0, 0, -90)) as GameObject;
-        //catTemp.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -350 * Time.deltaTime);
     }
 
     Vector2 RandomSpawnPos(Vector2 center, Vector2 size)

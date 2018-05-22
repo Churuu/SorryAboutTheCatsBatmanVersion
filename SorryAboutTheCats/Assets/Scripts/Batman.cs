@@ -54,8 +54,7 @@ public class Batman : MonoBehaviour
     void Lose()
     {
         spriteRenderer.sprite = batmanSpriteDestroyed;
-        FindObjectOfType<PlayerMovement>().movementSpeedX = 0;
-        FindObjectOfType<PlayerMovement>().movementSpeedY = 0;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         isDead = true;
     }
 
