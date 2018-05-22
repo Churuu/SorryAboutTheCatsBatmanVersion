@@ -6,8 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     #region Variables
     private Rigidbody2D rb2d;
-    public float movementSpeedX;
-    public float movementSpeedY;
+    public float movementSpeedX = 4f;
+    public float movementSpeedY = 4f;
     public Transform mainCamera;
     private int rotationAngle = 30;
     #endregion
