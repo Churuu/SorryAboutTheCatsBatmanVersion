@@ -1,18 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BulletMovement : MonoBehaviour {
 
+    private Batman batmanPlayer;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
 
     public Sprite deadCat;
     public Sprite deadDog;
 
-    public List<AudioClip> CatSounds = new List<AudioClip>();
-    public List<AudioClip> DogSounds = new List<AudioClip>();
-    public List<AudioClip> BatmanSounds = new List<AudioClip>();
+    public AudioClip[] CatSounds;
+    public AudioClip[] DogSounds;
+    public AudioClip[] BatmanSounds;
 
     void Start ()
     {
@@ -20,10 +22,6 @@ public class BulletMovement : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(0, 10);
         Destroy(gameObject, 5);
-
-        // SoundFolder should be in Assets/Resources 
-        CatSounds.Add((AudioClip)Resources.Load(" SoundFolder/youraudioClip1"));
-        CatSounds.Add((AudioClip)Resources.Load(" SoundFolder/youraudioClip2"));
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -31,19 +29,17 @@ public class BulletMovement : MonoBehaviour {
     {
         if (col.gameObject.CompareTag("Cat"))
         {
-            //transform.GetComponent<AudioSource>().clip = CatSounds[Random.Range(0, CatSounds.Count)];
-            //transform.GetComponent<AudioSource>().Play();
             col.GetComponent<SpriteRenderer>().sprite = deadCat;
+            batmanPlayer.src.PlayOneShot(batmanPlayer.batmanSounds[Random.Range(0, batmanPlayer.batmanSounds.Length)]);
             FindObjectOfType<Score>().AddScore(1);
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
         else if (col.gameObject.CompareTag("Dog"))
         {
-            //transform.GetComponent<AudioSource>().clip = dogSounds[Random.Range(0, dogSounds.Count)];
-            //transform.GetComponent<AudioSource>().Play();
             col.GetComponent<SpriteRenderer>().sprite = deadDog;
+            batmanPlayer.src.PlayOneShot(batmanPlayer.dogSounds[Random.Range(0, batmanPlayer.dogSounds.Length)]);
             FindObjectOfType<Score>().RemoveScore(1);
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
         else if (col.gameObject.CompareTag("Wall"))
         {

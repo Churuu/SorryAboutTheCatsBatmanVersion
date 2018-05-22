@@ -7,17 +7,19 @@ public class Batman : MonoBehaviour
 {
 
     public GameObject batmanPlayer;
+
     public Sprite batmanSpriteCar;
     public Sprite batmanSpriteDestroyed;
     public Sprite deadCat;
     public Sprite deadDog;
+
     public AudioClip[] catSounds;
     public AudioClip[] dogSounds;
     public AudioClip[] batmanSounds;
 
     [HideInInspector] public bool isDead = false;
 
-    private AudioSource src;
+    public AudioSource src;
     private SpriteRenderer spriteRenderer;
 
     void Start()

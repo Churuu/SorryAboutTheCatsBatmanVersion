@@ -142,8 +142,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a100b52b9b3fe194bb9a238e44d0b816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deadCat: {fileID: 0}
-  deadDog: {fileID: 0}
+  deadCat: {fileID: 21300000, guid: de2dd3a51c8809b48844d654f0ae2aa5, type: 3}
+  deadDog: {fileID: 21300000, guid: aa54e3d46b8626d4887fb782fe898786, type: 3}
   CatSounds: []
-  DogSounds: []
-  BatmanSounds: []
+  DogSounds:
+  - {fileID: 8300000, guid: 06c223f58f58d5f40bd9b8ba6aca3b95, type: 3}
+  - {fileID: 8300000, guid: 8e4ff5321e9a0684ca522d4ebce1324f, type: 3}
+  - {fileID: 8300000, guid: 5d4bfe11a13a50444ac965796b491cd4, type: 3}
+  BatmanSounds:
+  - {fileID: 8300000, guid: 433aa242ca026a544b5bdf94adc4299b, type: 3}
+  - {fileID: 8300000, guid: c08617dc15586eb42a8a1fa9a88ae7a9, type: 3}
+  - {fileID: 8300000, guid: 2e29de41b1232574cb57893ad6bf76fa, type: 3}
+  - {fileID: 8300000, guid: 084e38d20f76e2b4b862c6f90314bfe9, type: 3}
+  - {fileID: 8300000, guid: 651abd1656122ae4e9180ff5766ecc91, type: 3}
+  - {fileID: 8300000, guid: 0b115769925adfb46b78395ef5e2085a, type: 3}
+  - {fileID: 8300000, guid: e315a004829938446a7d89b8cd4308c2, type: 3}
+  - {fileID: 8300000, guid: e5b49d0a27364fb4a9bb52e419bc7175, type: 3}
+  - {fileID: 8300000, guid: da049d09d496a0843a5f5f57c671502d, type: 3}
