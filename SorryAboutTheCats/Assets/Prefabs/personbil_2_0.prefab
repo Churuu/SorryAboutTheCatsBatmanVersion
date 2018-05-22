@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4089817352322554}
   - component: {fileID: 212145104556017092}
-  - component: {fileID: 61226977351740930}
   - component: {fileID: 95123331214178700}
+  - component: {fileID: 60641340562562660}
   m_Layer: 0
   m_Name: personbil_2_0
   m_TagString: Wall
@@ -36,14 +36,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1015143262926884}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.18662, y: -15.403494, z: 0}
+  m_LocalPosition: {x: 18.500767, y: -13.79356, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61226977351740930
-BoxCollider2D:
+--- !u!60 &60641340562562660
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -64,9 +64,23 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.62, y: 0.64}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.31, y: 0.04}
+      - {x: 0.26999998, y: 0.099999994}
+      - {x: 0.12, y: 0.26999998}
+      - {x: 0, y: 0.32}
+      - {x: -0.19999999, y: 0.32}
+      - {x: -0.31, y: 0.21}
+      - {x: -0.31, y: 0.06}
+      - {x: -0.29, y: -0.04}
+      - {x: -0.24, y: -0.11}
+      - {x: -0.17999999, y: -0.19}
+      - {x: -0.08, y: -0.32}
+      - {x: 0.14999999, y: -0.32}
+      - {x: 0.29, y: -0.19}
+      - {x: 0.29999998, y: -0.08}
+      - {x: 0.31, y: -0.049999997}
 --- !u!95 &95123331214178700
 Animator:
   serializedVersion: 3

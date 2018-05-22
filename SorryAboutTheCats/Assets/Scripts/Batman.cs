@@ -50,32 +50,11 @@ public class Batman : MonoBehaviour
         }
     }
 
-    void Lose()
+    public void Lose()
     {
         spriteRenderer.sprite = batmanSpriteDestroyed;
         GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         isDead = true;
-    }
-
-    void ChangeNOW()
-    {
-        if (spriteRenderer.sprite == batmanSpriteCar) // if the spriteRenderer sprite = sprite1 then change to sprite2
-        {
-
-            spriteRenderer.sprite = batmanSpriteDestroyed;
-        }
-        else
-        {
-            spriteRenderer.sprite = batmanSpriteCar; // otherwise change it back to sprite1
-        }
-    }
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("Hello");
-            ChangeNOW();
-        }
     }
 }
 
