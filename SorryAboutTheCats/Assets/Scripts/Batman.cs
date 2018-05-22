@@ -7,6 +7,7 @@ public class Batman : MonoBehaviour
 {
 
     public GameObject batmanPlayer;
+    public GameObject gameOver;
     public Sprite batmanSpriteCar;
     public Sprite batmanSpriteDestroyed;
     public Sprite deadCat;
@@ -14,6 +15,7 @@ public class Batman : MonoBehaviour
     public AudioClip[] catSounds;
     public AudioClip[] dogSounds;
     public AudioClip[] batmanSounds;
+
 
     [HideInInspector] public bool isDead = false;
 
@@ -52,6 +54,7 @@ public class Batman : MonoBehaviour
     {
         spriteRenderer.sprite = batmanSpriteDestroyed;
         GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        gameOver.SetActive(true);
         isDead = true;
     }
 }
