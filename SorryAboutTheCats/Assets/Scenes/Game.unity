@@ -251,17 +251,8 @@ GameObject:
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
-<<<<<<< HEAD
-  - component: {fileID: 300129362}
-  - component: {fileID: 300129361}
-  - component: {fileID: 300129366}
-  - component: {fileID: 300129364}
-  - component: {fileID: 300129363}
-  - component: {fileID: 300129365}
-=======
   - component: {fileID: 634609999}
   - component: {fileID: 634609998}
->>>>>>> f76fdb8101d41f9c0301b9f42055b932d871c0f7
   m_Layer: 0
   m_Name: GameHandler
   m_TagString: Untagged
@@ -349,35 +340,6 @@ Prefab:
 --- !u!1001 &864202447
 Prefab:
   m_ObjectHideFlags: 0
-<<<<<<< HEAD
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 300129360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46381f51dc6efba48ad85f4d5f39420c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 3
---- !u!114 &300129366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 300129360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42e8203c91f61d8499e987ce2e029f2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BatmanPlayer: {fileID: 300129360}
-  BatmanSpriteCar: {fileID: 21300000, guid: 15ae3f95388685f43b2ed993e0f37a30, type: 3}
-  BatmanSpriteDestroyed: {fileID: 21300000, guid: d8f8de614ad190c4abe535d0d5dd7004,
-    type: 3}
-  CatSounds: []
-  DogSounds: []
-  BatmanSounds: []
-=======
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
@@ -444,7 +406,6 @@ MonoBehaviour:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cca19d4d5c162b246b569cf6a10e7374, type: 2}
   m_IsPrefabParent: 0
->>>>>>> f76fdb8101d41f9c0301b9f42055b932d871c0f7
 --- !u!1 &993348242
 GameObject:
   m_ObjectHideFlags: 0
