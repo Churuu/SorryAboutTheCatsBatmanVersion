@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4695892832414516}
   - component: {fileID: 212312504456646496}
-  - component: {fileID: 61925411501374590}
   - component: {fileID: 95974124123150076}
+  - component: {fileID: 60968200933957634}
   m_Layer: 0
   m_Name: brandbil
   m_TagString: Wall
@@ -36,14 +36,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1276320401992644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.206049, y: -2.9076374, z: 0}
+  m_LocalPosition: {x: 18.08723, y: -14.116525, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61925411501374590
-BoxCollider2D:
+--- !u!60 &60968200933957634
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -64,9 +64,24 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.66, y: 0.72}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.32999998, y: 0.02}
+      - {x: 0.32999998, y: 0.21}
+      - {x: 0.16, y: 0.35999998}
+      - {x: 0.01, y: 0.35999998}
+      - {x: -0.01, y: 0.32}
+      - {x: -0.089999996, y: 0.29999998}
+      - {x: -0.14, y: 0.24}
+      - {x: -0.26, y: 0.11}
+      - {x: -0.29999998, y: 0.03}
+      - {x: -0.32999998, y: -0.08}
+      - {x: -0.32999998, y: -0.22}
+      - {x: -0.29, y: -0.28}
+      - {x: -0.14999999, y: -0.35999998}
+      - {x: -0.01, y: -0.35999998}
+      - {x: 0.07, y: -0.32}
+      - {x: 0.28, y: -0.06}
 --- !u!95 &95974124123150076
 Animator:
   serializedVersion: 3

@@ -5,11 +5,16 @@ using UnityEngine;
 public class SpawnBullets : MonoBehaviour
 {
     public GameObject bullet;
+    public float cycle;
+    float currentCycle = 0;
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && Time.time > currentCycle)
+        {
+            currentCycle = Time.time + cycle;
             CreateBullet();
+        }
     }
 
     void CreateBullet()
