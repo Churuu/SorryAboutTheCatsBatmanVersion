@@ -20,12 +20,13 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Movement();
+        if (!FindObjectOfType<Batman>().isDead)
+            Movement();
     }
 
     void Movement()
     {
-        mainCamera.position = new Vector3(0, transform.position.y + 4, -10);
+        mainCamera.position = new Vector3(0, transform.position.y + 2, -10);
         rb2d.velocity = new Vector2((Input.GetAxis("Horizontal") * movementSpeedX), movementSpeedY);
         transform.eulerAngles = new Vector3(0, 0, 90 + Input.GetAxis("Horizontal") * -rotationAngle);
 

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4089817352322554}
   - component: {fileID: 212145104556017092}
   - component: {fileID: 61226977351740930}
+  - component: {fileID: 95123331214178700}
   m_Layer: 0
   m_Name: personbil_2_0
   m_TagString: Wall
@@ -35,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1015143262926884}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.4641025, y: -1.763952, z: 0}
+  m_LocalPosition: {x: 10.18662, y: -15.403494, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -66,6 +67,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.62, y: 0.64}
   m_EdgeRadius: 0
+--- !u!95 &95123331214178700
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1015143262926884}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4297adb7d3dd6d741a3c3d9b4656ef27, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &212145104556017092
 SpriteRenderer:
   m_ObjectHideFlags: 1

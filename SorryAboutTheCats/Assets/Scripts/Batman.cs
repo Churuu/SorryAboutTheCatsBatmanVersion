@@ -11,12 +11,13 @@ public class Batman : MonoBehaviour
     public Sprite batmanSpriteDestroyed;
     public Sprite deadCat;
     public Sprite deadDog;
-    private SpriteRenderer spriteRenderer;
-
     public List<AudioClip> catSounds = new List<AudioClip>();
     public List<AudioClip> dogSounds = new List<AudioClip>();
     public List<AudioClip> batmanSounds = new List<AudioClip>();
 
+    [HideInInspector] public bool isDead = false;
+
+    private SpriteRenderer spriteRenderer;
 
     void Start()
     {
@@ -53,6 +54,9 @@ public class Batman : MonoBehaviour
     void Lose()
     {
         spriteRenderer.sprite = batmanSpriteDestroyed;
+        FindObjectOfType<PlayerMovement>().movementSpeedX = 0;
+        FindObjectOfType<PlayerMovement>().movementSpeedY = 0;
+        isDead = true;
     }
 
     void ChangeNOW()
