@@ -8,14 +8,13 @@ public class Audio : MonoBehaviour
 {
 
 
-    float slider;
+
     public AudioMixer mixer;
-    void Start()
+    public void Slider(float slider)
     {
         AudioSource audio = GetComponent<AudioSource>();
         audio.Play();
         audio.Play(44100);
-        slider = GetComponent<Slider>().value;
         mixer.SetFloat("musicVol", slider);
     }
 }
