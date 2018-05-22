@@ -257,7 +257,7 @@ Prefab:
     - target: {fileID: 114188129671743506, guid: 91f181bd887486d4ea8825e2668906c4,
         type: 2}
       propertyPath: sizeVertical
-      value: 12.375
+      value: 12.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91f181bd887486d4ea8825e2668906c4, type: 2}
@@ -306,16 +306,6 @@ Prefab:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 993348246}
-    - target: {fileID: 114382839288391398, guid: cca19d4d5c162b246b569cf6a10e7374,
-        type: 2}
-      propertyPath: movementSpeedX
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114382839288391398, guid: cca19d4d5c162b246b569cf6a10e7374,
-        type: 2}
-      propertyPath: movementSpeedY
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cca19d4d5c162b246b569cf6a10e7374, type: 2}
   m_IsPrefabParent: 0
@@ -491,11 +481,6 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 300129362}
-    - target: {fileID: 114188129671743506, guid: 91f181bd887486d4ea8825e2668906c4,
-        type: 2}
-      propertyPath: sizeVertical
-      value: 12.375
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91f181bd887486d4ea8825e2668906c4, type: 2}
   m_IsPrefabParent: 0
