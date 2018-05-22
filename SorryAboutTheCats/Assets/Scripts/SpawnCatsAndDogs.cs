@@ -7,9 +7,12 @@ public class SpawnCatsAndDogs : MonoBehaviour
 
     public float timeOffset;
     float cycleTimer = 0;
+    float wallTimer;
+    float wallTimeOffset = 3;
 
     public GameObject[] cats;
     public GameObject dog;
+    public GameObject[] wall;
 
     void Start()
     {
@@ -20,6 +23,9 @@ public class SpawnCatsAndDogs : MonoBehaviour
     void Update()
     {
         ChooseAnimalToSpawn();
+        if (WallTimeCheck())
+            SpawnWall();
+        
     }
 
     void ChooseAnimalToSpawn()
@@ -33,6 +39,29 @@ public class SpawnCatsAndDogs : MonoBehaviour
             else
                 SpawnDog();
         }
+    }
+
+    private bool WallTimeCheck()
+    {
+        if (Time.time > wallTimer)
+        {
+            wallTimer = Time.time + wallTimeOffset;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    void SpawnWall()
+    {
+        var col = GetComponent<Collider2D>();
+        GameObject wallTemp = Instantiate(wall[Random.Range(0, wall.Length)], RandomSpawnPos(col.bounds.center, col.bounds.size), Quaternion.Euler(0, 0, -90)) as GameObject;
+
+        if (Time.time % 5 == 0 && wallTimeOffset > 0.5f)
+            wallTimeOffset -= 0.2f;
+
     }
 
     void SpawnCat()
