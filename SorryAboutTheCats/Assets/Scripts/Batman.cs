@@ -11,19 +11,18 @@ public class Batman : MonoBehaviour
     public Sprite batmanSpriteDestroyed;
     public Sprite deadCat;
     public Sprite deadDog;
-    public List<AudioClip> catSounds = new List<AudioClip>();
-    public List<AudioClip> dogSounds = new List<AudioClip>();
-    public List<AudioClip> batmanSounds = new List<AudioClip>();
+    public AudioClip[] catSounds;
+    public AudioClip[] dogSounds;
+    public AudioClip[] batmanSounds;
 
     [HideInInspector] public bool isDead = false;
 
+    private AudioSource src;
     private SpriteRenderer spriteRenderer;
 
     void Start()
     {
-        // SoundFolder should be in Assets/Resources 
-        catSounds.Add((AudioClip)Resources.Load(" SoundFolder/youraudioClip1"));
-        catSounds.Add((AudioClip)Resources.Load(" SoundFolder/youraudioClip2"));
+        src = GetComponent<AudioSource>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer == null)
             spriteRenderer.sprite = batmanSpriteCar;
@@ -33,16 +32,14 @@ public class Batman : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Cat"))
         {
-            //transform.GetComponent<AudioSource>().clip = CatSounds[Random.Range(0, CatSounds.Count)];
-            //transform.GetComponent<AudioSource>().Play();
             col.GetComponent<SpriteRenderer>().sprite = deadCat;
+            src.PlayOneShot(batmanSounds[Random.Range(0, batmanSounds.Length)]);
             FindObjectOfType<Score>().AddScore(1);
         }
         else if (col.gameObject.CompareTag("Dog"))
         {
-            //transform.GetComponent<AudioSource>().clip = dogSounds[Random.Range(0, dogSounds.Count)];
-            //transform.GetComponent<AudioSource>().Play();
             col.GetComponent<SpriteRenderer>().sprite = deadDog;
+            src.PlayOneShot(dogSounds[Random.Range(0, dogSounds.Length)]);
             FindObjectOfType<Score>().RemoveScore(1);
         }
         else if (col.gameObject.CompareTag("Wall"))
