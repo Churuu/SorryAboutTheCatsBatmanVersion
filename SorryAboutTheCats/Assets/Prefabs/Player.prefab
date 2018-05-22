@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8511c29b859bc6c4f8d2b1e19531d7f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
+  bullet: {fileID: 1644570484279738, guid: 2be9823acd2b80b4eba3da2bc4c7e826, type: 2}
 --- !u!114 &114382839288391398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -205,6 +205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeedX: 3.5
   movementSpeedY: 5
+  mainCamera: {fileID: 0}
 --- !u!212 &212986773230832302
 SpriteRenderer:
   m_ObjectHideFlags: 1

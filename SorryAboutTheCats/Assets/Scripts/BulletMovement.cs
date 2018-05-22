@@ -7,6 +7,9 @@ public class BulletMovement : MonoBehaviour {
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
 
+    public Sprite deadCat;
+    public Sprite deadDog;
+
     public List<AudioClip> CatSounds = new List<AudioClip>();
     public List<AudioClip> DogSounds = new List<AudioClip>();
     public List<AudioClip> BatmanSounds = new List<AudioClip>();
@@ -15,8 +18,8 @@ public class BulletMovement : MonoBehaviour {
     {
         // konstant speed forward and destroy after 9 seconds
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = new Vector2(0, 3);
-        Destroy(gameObject, 9);
+        rb.velocity = new Vector2(0, 10);
+        Destroy(gameObject, 5);
 
         // SoundFolder should be in Assets/Resources 
         CatSounds.Add((AudioClip)Resources.Load(" SoundFolder/youraudioClip1"));
@@ -24,20 +27,30 @@ public class BulletMovement : MonoBehaviour {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        if (collision.otherRigidbody.CompareTag("Cat"))
+        if (col.gameObject.CompareTag("Cat"))
         {
-            transform.GetComponent<AudioSource>().clip = CatSounds[Random.Range(0, CatSounds.Count)];
-            transform.GetComponent<AudioSource>().Play();
-
+            //transform.GetComponent<AudioSource>().clip = CatSounds[Random.Range(0, CatSounds.Count)];
+            //transform.GetComponent<AudioSource>().Play();
+            col.GetComponent<SpriteRenderer>().sprite = deadCat;
+            FindObjectOfType<Score>().AddScore(1);
+            Destroy(gameObject);
         }
-        if (collision.otherRigidbody.CompareTag("Dog"))
+        else if (col.gameObject.CompareTag("Dog"))
         {
-            transform.GetComponent<AudioSource>().clip = DogSounds[Random.Range(0, DogSounds.Count)];
-            transform.GetComponent<AudioSource>().Play();
+            //transform.GetComponent<AudioSource>().clip = dogSounds[Random.Range(0, dogSounds.Count)];
+            //transform.GetComponent<AudioSource>().Play();
+            col.GetComponent<SpriteRenderer>().sprite = deadDog;
+            FindObjectOfType<Score>().RemoveScore(1);
+            Destroy(gameObject);
         }
-
+        else if (col.gameObject.CompareTag("Wall"))
+        {
+            Destroy(col.gameObject);
+            Destroy(gameObject);
+        }
     }
+
 
 }
